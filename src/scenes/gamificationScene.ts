@@ -71,11 +71,11 @@ export class gamificationScene extends Scene {
                 this.fadeOutElement(this.elementoTexto!)
 
                 // Direcionar para a próxima cena
-                engine.goToScene("gamificacao")
+                engine.goToScene("exposicao")
             }
         })
     }
-
+ 
     
     onDeactivate(context: SceneActivationContext<undefined>): void {
         // remover elemento texto da tela
