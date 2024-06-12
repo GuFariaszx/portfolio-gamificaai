@@ -1,4 +1,4 @@
-import { Actor, Color, Engine, Keys, vec } from "excalibur";
+import { Actor, CollisionType, Color, Engine, Keys, vec } from "excalibur";
 
 export class Player extends Actor{
     // Propiedade do player 
@@ -13,6 +13,7 @@ export class Player extends Actor{
             height: 32,
             name: "Jogador",
             color: Color.Red,
+            collisionType: CollisionType.Active
         })
     }
 
