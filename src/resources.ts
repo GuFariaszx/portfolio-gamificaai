@@ -5,6 +5,8 @@ import sword from "./images/sword.png";
 import logo from "./images/logo.png"
 import logoVer from "./images/logoVer.png"
 import controle from "./images/controle.png"
+import case1 from "./images/case1.png"
+import case2 from "./images/case2.png"
 
 import pngTilesetPath from "./maps/Room_Builder_32x32.png?url"
 
@@ -23,6 +25,8 @@ export const Resources = {
   PlayerSpriteSheet: new ImageSource(playerSpritePath, { filtering: ImageFiltering.Pixel }),
   logoVer: new ImageSource(logoVer),
   controle: new ImageSource(controle),
+  case1: new ImageSource(case1),
+  case2: new ImageSource(case2),
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [
       { path: "Showroom_map.tmx", output: tmxMapaPath },
