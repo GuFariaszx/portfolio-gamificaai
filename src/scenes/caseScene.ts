@@ -5,9 +5,10 @@ export class caseScene extends Scene {
     elementoTexto?: HTMLElement
     private objetoInteracao: any
 
-    private textoDaCena: string = ""
+    private textoDaCena?: string 
 
-    
+    private imagemCase?: Actor 
+
 
     onTransition(direction: "in" | "out"): Transition | undefined {
         return new FadeInOut({
@@ -18,7 +19,15 @@ export class caseScene extends Scene {
     }
 
     onInitialize(engine: Engine<any>): void {
-        this.backgroundColor = Color.Gray     
+        this.backgroundColor = Color.Gray
+
+       
+
+            this.input.keyboard.on("press", (event) => {
+                if (event.key == Keys.E) {
+                    this.engine.goToScene("exposicao")
+                }
+            })
     }
 
     onActivate(context: SceneActivationContext<unknown>): void {
@@ -27,112 +36,55 @@ export class caseScene extends Scene {
 
         console.log(this.objetoInteracao);
 
-        this.input.keyboard.on("press", (event) => {
-            if(event.key == Keys.E) {
-                this.engine.goToScene("exposicao")
-            }
-        })
+        this.elementoTexto = document.createElement("div") as HTMLElement
+
+        // Definir opacidade do elemento para 1 = visível
+        this.elementoTexto.style.opacity = "1"
+
+        // Inserir elementoTExto no container-game
+        let containerGame = document.querySelector(".container-game") as HTMLElement
+        containerGame.appendChild(this.elementoTexto)
+
+        // Adicionar classe na div criada (elementoTexto)
+        this.elementoTexto.classList.add("sobre-gamifica")
+
+        let case1 = Resources.case1.toSprite()
+        let case2 = Resources.case2.toSprite()
+        let case3 = Resources.case3.toSprite()
+        
+        this.imagemCase?.graphics.add("case1",case1)
+        this.imagemCase?.graphics.add("case2",case2)
+        this.imagemCase?.graphics.add("case3",case3)
 
         
-
-        
-
 
         // Se for a mesa a 
-        if ( this.objetoInteracao.nomeDoActor = "mesa_stand_a") {
+        if (this.objetoInteracao.nomeDoActor = "mesa_stand_a") {
             this.textoDaCena = "Essa é a descrição do case A"
-            this.elementoTexto = document.createElement("div") as HTMLElement
-
-        // Definir opacidade do elemento para 1 = visível
-        this.elementoTexto.style.opacity = "1"
-
-        // Inserir elementoTExto no container-game
-        let containerGame = document.querySelector(".container-game") as HTMLElement
-        containerGame.appendChild(this.elementoTexto)
-
-        // Adicionar classe na div criada (elementoTexto)
-        this.elementoTexto.classList.add("sobre-gamifica")
-
-        // Adicionar titulo e paragrafo dentro do conteudo da div
-        this.elementoTexto.innerHTML = `<h2>Sobre o GamificaAi</h2>
-        <p>Tornamos um trabalho administrativo muito massante em um trabalho totalmente gamificado e nada intediante.
-        Conseguimos fazer com que o acúmulo de cera horas os traga uma recompensa.</p>`
-
-        let actorCase1 = new Actor({
-            pos: vec(860, 400 )
-        })
-
-        let imagemcase1 = Resources.case1.toSprite()
         
-        imagemcase1.scale = vec(0.7, 0.7)
-        
-        actorCase1.graphics.add(imagemcase1)
-        
-        this.add(actorCase1)
+            // Adicionar titulo e paragrafo dentro do conteudo da div
+            this.elementoTexto!.innerHTML = `<h2>CASE A</h2>
+            <p>Tornamos um trabalho administrativo muito massante em um trabalho totalmente gamificado e nada intediante.
+            Conseguimos fazer com que o acúmulo de cera horas os traga uma recompensa.</p>`
 
-        
+            this.imagemCase?.graphics.use("case1")
 
+            
         }
 
-
         // Se for a mesa b
-        if ( this.objetoInteracao.nomeDoActor = "mesa_stand_b") {
+        if (this.objetoInteracao.nomeDoActor = "mesa_stand_b") {
             this.textoDaCena = "Essa é a descrição do case B"
-
-            this.textoDaCena = "Essa é a descrição do case A"
-            this.elementoTexto = document.createElement("div") as HTMLElement
-
-        // Definir opacidade do elemento para 1 = visível
-        this.elementoTexto.style.opacity = "1"
-
-        // Inserir elementoTExto no container-game
-        let containerGame = document.querySelector(".container-game") as HTMLElement
-        containerGame.appendChild(this.elementoTexto)
-
-        // Adicionar classe na div criada (elementoTexto)
-        this.elementoTexto.classList.add("sobre-gamifica")
-
-        // Adicionar titulo e paragrafo dentro do conteudo da div
-        this.elementoTexto.innerHTML = `<h2>Sobre o GamificaAi</h2>
-        <p>Mudamos a rotina de uma escola, para um jeito mais divertido e dinâmico para toda criançada.
-        Alteramos o modo de preparo das aulas, assim quando os aluno os tiverem mais que 75% de frequência nas aulas,
-        ele será recompensado com mais um ponto na matéria.</p>`
-
-        let actorCase2 = new Actor({
-            pos: vec(860, 400 )
-        })
-
-        let imagemcase2 = Resources.case2.toSprite()
-        
-        imagemcase2.scale = vec(0.7, 0.7)
-        
-        actorCase2.graphics.add(imagemcase2)
-        
-        this.add(actorCase2)
-
-
-
-        let actorCase1 = new Actor({
-            pos: vec(860, 400 )
-        })
-
-        let imagemcase1 = Resources.case1.toSprite()
-        
-        imagemcase1.scale = vec(0.7, 0.7)
-        
-        actorCase1.graphics.add(imagemcase1)
-        
-        this.remove(actorCase1)
-
 
         }
 
         // Se for a mesa c
-        if ( this.objetoInteracao.nomeDoActor = "mesa_stand_c") {
+        if (this.objetoInteracao.nomeDoActor = "mesa_stand_c") {
             this.textoDaCena = "Essa é a descrição do case C"
+  
         }
 
-        
+
     }
 
     onDeactivate(context: SceneActivationContext<undefined>): void {
