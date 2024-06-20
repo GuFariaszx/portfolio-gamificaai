@@ -79,6 +79,11 @@ export class welcomeScene extends Scene {
         this.input.keyboard.on("press", (event) => {
             // Caso a tecla pressionada for "Enter", deve ir para a próxima cena
             if (event.key == Keys.Enter) {
+            // Carregar musica de fundo (BGM) - Background Music
+            let press = Resources.press
+
+            // Configurar a musica e executar 
+            press.play(0.6)
                 // Direciona para a cena Historia
                 engine.goToScene("historia")
             }

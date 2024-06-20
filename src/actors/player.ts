@@ -270,6 +270,11 @@ export class Player extends Actor{
         engine.input.keyboard.on("press", (event) => {
             // Se a tecla pressionada for a F e tiver objeto próximow
             if (event.key == Keys.F && this.temobjetoProximo) {
+                // Carregar musica de fundo (BGM) - Background Music
+                let press = Resources.press
+
+                // Configurar a musica e executar 
+                press.play(0.6)
                 // Identificar o alvo da interação
                 if(this.ultimoColisor?.owner.name == "mesa_stand_a") {
                     console.log("Essa é a mesa A");

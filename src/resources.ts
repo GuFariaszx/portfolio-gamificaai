@@ -22,6 +22,7 @@ import playerSpritePath from "./sprites/Player.png"
 
 import ritmada from "./sounds/ritmada_zelda.mp3"
 import classico from "./sounds/zelda.mp3"
+import press from "./sounds/press.wav"
 import npcASpriteSheet from "./sprites/Npc_a.png"
 import npcBSpriteSheet from "./sprites/Npc_b.png"
 import npcCSpriteSheet from "./sprites/Npc_c.png"
@@ -39,6 +40,7 @@ export const Resources = {
   NpcBSpriteSheet: new ImageSource(npcBSpriteSheet),
   NpcCSpriteSheet: new ImageSource(npcCSpriteSheet),
   RitmadaBGM: new Sound(ritmada),
+  press: new Sound(press),
   ClassicBGM: new Sound(classico),
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [

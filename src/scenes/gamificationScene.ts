@@ -67,6 +67,11 @@ export class gamificationScene extends Scene {
         // Configurar a cena para monitorar o evento de tecla pressionada
         this.input.keyboard.on("press", (event) => {
             if(event.key == Keys.Enter) {
+                // Carregar musica de fundo (BGM) - Background Music
+                let press = Resources.press
+
+                // Configurar a musica e executar 
+                press.play(0.6)
                 // Criar transição suave do elemento texto
                 this.fadeOutElement(this.elementoTexto!)
 

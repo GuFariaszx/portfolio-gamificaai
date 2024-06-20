@@ -31,6 +31,11 @@ export class caseScene extends Scene {
         // Ao pressionar a tecla ( E ), voltar para a exposicao
         this.input.keyboard.on("press", (event) => {
             if (event.key == Keys.E) {
+                // Carregar musica de fundo (BGM) - Background Music
+                let press = Resources.press
+
+                // Configurar a musica e executar 
+                press.play(0.6)
                  this.engine.goToScene("exposicao")
             }
         })
