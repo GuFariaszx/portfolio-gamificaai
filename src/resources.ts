@@ -22,6 +22,9 @@ import playerSpritePath from "./sprites/Player.png"
 
 import ritmada from "./sounds/ritmada_zelda.mp3"
 import classico from "./sounds/zelda.mp3"
+import npcASpriteSheet from "./sprites/Npc_a.png"
+import npcBSpriteSheet from "./sprites/Npc_b.png"
+import npcCSpriteSheet from "./sprites/Npc_c.png"
 
 export const Resources = {
   Sword: new ImageSource(sword),
@@ -32,6 +35,9 @@ export const Resources = {
   case1: new ImageSource(case1),
   case2: new ImageSource(case2),
   case3: new ImageSource(case3),
+  NpcASpriteSheet: new ImageSource(npcASpriteSheet),
+  NpcBSpriteSheet: new ImageSource(npcBSpriteSheet),
+  NpcCSpriteSheet: new ImageSource(npcCSpriteSheet),
   RitmadaBGM: new Sound(ritmada),
   ClassicBGM: new Sound(classico),
   Mapa: new TiledResource(tmxMapaPath, {
